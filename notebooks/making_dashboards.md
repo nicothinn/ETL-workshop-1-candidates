@@ -34,13 +34,17 @@ CREATE DATABASE hiring_analysis;
 
 ### 3. Create a Table and Load Data
 ```sql
-CREATE TABLE hired_candidates (
-    id SERIAL PRIMARY KEY,
-    name VARCHAR(100),
-    position VARCHAR(100),
-    department VARCHAR(100),
-    hire_date DATE,
-    salary NUMERIC(10,2)
+CREATE TABLE IF NOT EXISTS public.candidates (
+    "First Name" TEXT,
+    "Last Name" TEXT,
+    "Email" TEXT,
+    "Application Date" DATE,
+    "Country" TEXT,
+    "YOE" INTEGER,
+    "Seniority" TEXT,
+    "Technology" TEXT,
+    "Code Challenge Score" INTEGER,
+    "Technical Interview Score" INTEGER
 );
 
 COPY hired_candidates FROM '/path_to/hired_candidates.csv' DELIMITER ',' CSV HEADER;
