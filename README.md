@@ -133,20 +133,22 @@ During the Exploratory Data Analysis (EDA), the following key steps were perform
   Ensured that the data was complete and of high quality, focusing on the most relevant subset for visualization and decision-making.
 
 
-# Windows Setup Instructions
+# Instructions for Use
 
-## Create Virtual Environment
+## Windows Setup Instructions
+
+### Create Virtual Environment
 Run the following commands to create and activate a virtual environment on Windows:
 
     python -m venv venv
     venv\Scripts\activate
 
-## Install Dependencies
+### Install Dependencies
 Install the required dependencies by running:
 
     pip install -r requirements.txt
 
-## Set Up Environment Variables
+### Set Up Environment Variables
 Create a `.env` file in the root directory and add the following:
 
     DB_HOST=your_database_host
@@ -154,44 +156,82 @@ Create a `.env` file in the root directory and add the following:
     DB_PASSWORD=your_database_password
     DB_NAME=your_database_name
 
-
-## Execute the notebooks step by step:
+### Execute the Notebooks Step by Step
 - **Exploratory Data Analysis & Data Extraction (EDA):** `notebooks/eda.ipynb`
 - **Database Connection:** `notebooks/database_connection.ipynb`
 - **Load Process:** `notebooks/data_loading_py`
 
-# Step-by-Step Guide: Creating Dashboards with Power BI and Tableau (Connected to PostgreSQL)
-
-This guide provides a detailed walkthrough of how to create interactive dashboards using **Power BI** and **Tableau**, connecting to a **PostgreSQL** database. It includes step-by-step instructions, code snippets, and screenshots to help you replicate the process.
-
 ---
 
-## **Table of Contents**
+## Step-by-Step Guide: Creating Dashboards with Tableau (Connected to PostgreSQL)
+
+This guide provides a detailed walkthrough of how to create interactive dashboards using Tableau connected to a PostgreSQL database. Follow these steps to set up your environment, download necessary drivers, and build your dashboards.
+
+### Table of Contents
 1. [Prerequisites](#prerequisites)
 2. [Setting Up PostgreSQL](#setting-up-postgresql)
-3. [Connecting Power BI to PostgreSQL](#connecting-power-bi-to-postgresql)
+3. [Downloading JDBC Driver and Java](#downloading-jdbc-driver-and-java)
 4. [Connecting Tableau to PostgreSQL](#connecting-tableau-to-postgresql)
 5. [Creating Dashboards in Tableau](#creating-dashboards-in-tableau)
 6. [Sample Dashboards](#sample-dashboards)
 7. [Conclusion](#conclusion)
 
----
-
-## **Prerequisites**
+### Prerequisites
 Before starting, ensure you have the following:
-- **PostgreSQL** installed and running.
+- PostgreSQL installed and running.
 - A dataset loaded into PostgreSQL (e.g., `hired_candidates.csv`).
-- **Power BI Desktop** installed.
-- **Tableau Desktop** installed.
-- Basic knowledge of SQL, Power BI, and Tableau.
+- Tableau Desktop installed.
+- Basic knowledge of SQL and Tableau.
 
----
+### Setting Up PostgreSQL
+1. **Install PostgreSQL:**  
+   Download and install PostgreSQL from the [official website](https://www.postgresql.org/).
+2. **Create a Database:**  
+   Open your PostgreSQL client and run the following SQL command:
 
-## **Setting Up PostgreSQL**
-1. **Install PostgreSQL**: Download and install PostgreSQL from the [official website](https://www.postgresql.org/download/).
-2. **Create a Database**:
-   ```sql
-   CREATE DATABASE hiring_analysis;
+       CREATE DATABASE hiring_analysis;
 
-  
+### Downloading JDBC Driver and Java
+Tableau requires the appropriate PostgreSQL JDBC driver to connect to your database. Follow these steps:
 
+1. **Download the PostgreSQL JDBC Driver:**  
+   Visit the [PostgreSQL JDBC Driver download page](https://jdbc.postgresql.org/download/) to download the driver.  
+   **Important:** Verify that the driver version is compatible with the Java version installed on your computer.
+
+2. **Check for Java Installation:**  
+   - **If Java is already installed:**  
+     Verify your Java version by running:
+     
+         java -version
+     
+   - **If Java is not installed:**  
+     Download and install Java from the [official Java website](https://www.java.com/en/download/).
+
+### Connecting Tableau to PostgreSQL
+1. Open Tableau Desktop.
+2. Under **Connect**, select **PostgreSQL**.
+3. Enter your PostgreSQL server details:
+   - **Server:** your_database_host
+   - **Database:** hiring_analysis
+   - **Authentication:** Your PostgreSQL username and password.
+4. Click **Connect** to establish the connection.
+
+### Creating Dashboards in Tableau
+Build the following dashboards using Tableau's visualization tools:
+
+1. **Hires by Technology (Pie Chart):**  
+   - Create a pie chart that visualizes the proportion of hires by technology.
+   
+2. **Hires by Year (Horizontal Bar Chart):**  
+   - Create a horizontal bar chart showing the number of hires per year.
+   
+3. **Hires by Seniority (Bar Chart):**  
+   - Create a bar chart that displays the number of hires per seniority level.
+   
+4. **Hires by Country Over Years (Multiline Chart):**  
+   - Create a multiline chart focusing on hires over the years for the selected countries: USA, Brazil, Colombia, and Ecuador.
+
+### Sample Dashboards
+- **Dashboard 1:** Overview of hiring metrics including total candidates, average scores, and geographical distribution.
+- **Dashboard 2:** Detailed analysis of candidate performance by technology and seniority.
+- **Dashboard 3:** Time series analysis of application submissions and hiring trends.
